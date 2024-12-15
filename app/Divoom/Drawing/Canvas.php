@@ -145,11 +145,29 @@ class Canvas
     {
         $atIndex = $index * self::ColorSize;
 
+        if ($color->blendOnCanvas) {
+            $color = $color->blend(withColor: $this->getColorAt($index));
+        }
+
         $this->canvas[$atIndex] = $color->r;
         $this->canvas[$atIndex + 1] = $color->g;
         $this->canvas[$atIndex + 2] = $color->b;
 
         return $this;
+    }
+
+    /**
+     * Returns the Color at the given index
+     */
+    private function getColorAt(int $index): Color
+    {
+        $atIndex = $index * self::ColorSize;
+
+        return new Color(
+            r: $this->canvas[$atIndex],
+            g: $this->canvas[$atIndex + 1],
+            b: $this->canvas[$atIndex + 2],
+        );
     }
 
     /**

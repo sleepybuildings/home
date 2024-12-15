@@ -7,8 +7,7 @@ abstract class Sprite implements DrawsOnCanvasContract
     /**
      * 2d array containing the image.
      * Each value corresponds to an index in the
-     * color palette array, except value -1
-     * which will ship drawing (transparent)
+     * color palette array.
      *
      * @var array<array-key, array<array-key, int>>
      */
@@ -24,7 +23,7 @@ abstract class Sprite implements DrawsOnCanvasContract
         public int $x = 0,
         public int $y = 0
     ) {
-        $this->colorPalette[] = null;
+        $this->colorPalette[] = null; // Transparent
     }
 
     public function drawOn(Canvas $canvas): void

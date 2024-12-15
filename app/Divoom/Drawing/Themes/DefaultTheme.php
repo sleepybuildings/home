@@ -26,7 +26,7 @@ class DefaultTheme implements Theme
     public function __construct()
     {
         $this->windowBorder = Color::black();
-        $this->windowShadow = Color::rgb(99, 150, 110);
+        $this->windowShadow = Color::rgb(99, 150, 110)->blendOnCanvas();
         $this->windowBackground = Color::white();
 
         $this->titleBarBackground = Color::rgb(255, 206, 241);
@@ -34,7 +34,7 @@ class DefaultTheme implements Theme
 
         $this->desktopBackground = Color::rgb(242, 205, 170);
 
-        $this->cursorBorder = Color::black();
+        $this->cursorBorder = Color::black()->blendOnCanvas();
         $this->cursorBackground = Color::rgb(223, 125, 187);
 
     }
