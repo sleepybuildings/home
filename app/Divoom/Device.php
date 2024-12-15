@@ -4,6 +4,7 @@ namespace App\Divoom;
 
 use App\Divoom\Drawing\Canvas;
 use App\Divoom\Requests\GetPicId;
+use App\Divoom\Requests\ResetGifId;
 use App\Divoom\Requests\SentGif;
 use Illuminate\Support\Facades\Http;
 use Spatie\LaravelData\Data;
@@ -18,6 +19,13 @@ class Device
         private readonly string $ipAddress
     ) {}
 
+    public function resetPicId(): void
+    {
+        if ($this->post(new ResetGifId)->success()) {
+            $this->picId = 0;
+        }
+    }
+
     public function sendCanvas(Canvas $canvas): DeviceResult
     {
         // http://doc.divoom-gz.com/web/#/12?page_id=93
@@ -26,7 +34,7 @@ class Device
         $result = $this->post(new SentGif(
             PicNum: 1,
             PicID: $this->picId,
-            PicSpeed: 1000,
+            PicSpeed: 1,
             PicData: $canvas->toBase64(),
             PicOffset: 0,
         ));
@@ -45,6 +53,7 @@ class Device
         }
 
         $this->deviceInitialized = true;
+        $this->resetPicId();
         $this->picId = intval(data_get($this->post(new GetPicId)->value ?? [], 'PicId'));
     }
 
@@ -56,6 +65,10 @@ class Device
         // Darn JSON_UNESCAPED_SLASHES is not working for our slashes...
         $dataSent = $data->toJson();
         $dataSent = str_replace("\/", '/', $dataSent);
+
+        logger()->info('Posting data', [
+            'data' => $data->toArray(),
+        ]);
 
         return transform(
             value: Http::acceptJson()

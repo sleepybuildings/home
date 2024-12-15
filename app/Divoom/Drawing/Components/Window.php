@@ -3,9 +3,10 @@
 namespace App\Divoom\Drawing\Components;
 
 use App\Divoom\Drawing\Canvas;
+use App\Divoom\Drawing\DrawsOnCanvasContract;
 use App\Divoom\Drawing\Theme;
 
-class Window
+class Window implements DrawsOnCanvasContract
 {
     public function __construct(
         public Theme $theme,

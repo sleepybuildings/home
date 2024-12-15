@@ -22,7 +22,7 @@ class Canvas
     /**
      * Strided array with the screen buffer
      *
-     * @var array<array-index, int>
+     * @var array<array-key, int>
      */
     private array $canvas;
 

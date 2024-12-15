@@ -14,4 +14,8 @@ interface Theme
 
     public Color $desktopBackground { get; }
 
+
+    public Color $cursorBorder { get; }
+    public Color $cursorBackground { get; }
+
 }

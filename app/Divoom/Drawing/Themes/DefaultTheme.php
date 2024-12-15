@@ -19,6 +19,10 @@ class DefaultTheme implements Theme
 
     public Color $titleBarSystemMenuBackground;
 
+    public Color $cursorBorder;
+
+    public Color $cursorBackground;
+
     public function __construct()
     {
         $this->windowBorder = Color::black();
@@ -29,5 +33,9 @@ class DefaultTheme implements Theme
         $this->titleBarSystemMenuBackground = Color::rgb(188, 193, 255);
 
         $this->desktopBackground = Color::rgb(242, 205, 170);
+
+        $this->cursorBorder = Color::black();
+        $this->cursorBackground = Color::rgb(223, 125, 187);
+
     }
 }

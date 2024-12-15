@@ -6,9 +6,13 @@ use App\Divoom\Device;
 use App\Divoom\Drawing\Canvas;
 use App\Divoom\Drawing\Color;
 use App\Divoom\Drawing\Components\Window;
+use App\Divoom\Drawing\Sprites\PointerCursor;
 use App\Divoom\Drawing\Themes\DefaultTheme;
 use App\Divoom\Enums\Channel;
+use App\Divoom\Requests\CommandList;
 use App\Divoom\Requests\SelectChannel;
+use App\Divoom\Requests\SentGif;
+use App\Divoom\Requests\SetCustomPageIndex;
 use Illuminate\Console\Command;
 
 class Divoom extends Command
@@ -37,17 +41,43 @@ class Divoom extends Command
         //$canvas->rectangle(10, 10, 25, 25, new Color(255, 0, 0));
 
         $window = new Window(new DefaultTheme);
-        $window->at(10, 10);
+        $window->at(20, 20);
         $window->size(40, 40);
         $window->drawOn($canvas);
 
         $window2 = new Window(new DefaultTheme);
-        $window2->at(40, 22);
+        $window2->at(40, 24);
         $window2->size(20, 20);
         $window2->drawOn($canvas);
 
-        $client->post(new SelectChannel(Channel::Black));
+        //        $canvas->setPixel(rand(1, 63), rand(1, 63), Color::black());
+        //        $canvas->setPixel(rand(1, 63), rand(1, 63), Color::black());
+        //        $canvas->setPixel(rand(1, 63), rand(1, 63), Color::black());
+
+        $cursor = new PointerCursor(new DefaultTheme, rand(1, 63), rand(1, 63));
+        $cursor->drawOn($canvas);
+
+        //        dd($client->post(new CommandList([
+        //            //new SelectChannel(Channel::Black),
+        //            //new SetCustomPageIndex(3),
+        //            new SentGif(
+        //                PicNum: 1,
+        //                PicID: $client->picId,
+        //                PicSpeed: 1,
+        //                PicData: $canvas->toBase64(),
+        //                PicOffset: 0,
+        //            )
+        //        ])));
+
+        //$client->post(new SelectChannel(Channel::Black));
+        // dd($client->post(new SetCustomPageIndex(1)));
+
         $result = $client->sendCanvas($canvas);
+
+        dump($client->picId);
+
+        dd($result);
+
     }
     // http://doc.divoom-gz.com/web/#/12?page_id=219
 
