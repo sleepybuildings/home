@@ -22,12 +22,12 @@ class DefaultTheme implements Theme
     public function __construct()
     {
         $this->windowBorder = Color::black();
-        $this->windowShadow = Color::black();
+        $this->windowShadow = Color::rgb(99, 150, 110);
         $this->windowBackground = Color::white();
 
-        $this->titleBarBackground = Color::rgb(247, 247, 40);
-        $this->titleBarSystemMenuBackground = Color::rgb(194, 118, 219);
+        $this->titleBarBackground = Color::rgb(255, 206, 241);
+        $this->titleBarSystemMenuBackground = Color::rgb(188, 193, 255);
 
-        $this->desktopBackground = Color::rgb(219, 204, 224);
+        $this->desktopBackground = Color::rgb(242, 205, 170);
     }
 }

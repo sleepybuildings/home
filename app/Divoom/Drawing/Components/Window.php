@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Divoom\Drawing\Component;
+namespace App\Divoom\Drawing\Components;
 
 use App\Divoom\Drawing\Canvas;
 use App\Divoom\Drawing\Theme;

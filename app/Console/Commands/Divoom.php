@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Divoom\Device;
 use App\Divoom\Drawing\Canvas;
 use App\Divoom\Drawing\Color;
-use App\Divoom\Drawing\Component\Window;
+use App\Divoom\Drawing\Components\Window;
 use App\Divoom\Drawing\Themes\DefaultTheme;
 use App\Divoom\Enums\Channel;
 use App\Divoom\Requests\SelectChannel;
@@ -22,8 +22,9 @@ class Divoom extends Command
         $client = new Device('192.168.1.20');
 
         $canvas = new Canvas((new DefaultTheme)->desktopBackground);
+
         // $canvas->setPixel(rand(0, 63), rand(0, 63), Color::white());
-        $canvas->fillPattern(Color::white(), Color::black());
+        // $canvas->fillPattern(Color::white(), Color::black());
         // $canvas->fill(0, 0, 10, 10, new Color(23, 23, 202));
         //$canvas->rectangle(20, 20, 20, 20, new Color(23, 23, 202));
 
