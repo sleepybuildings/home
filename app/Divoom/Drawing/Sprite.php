@@ -35,6 +35,10 @@ abstract class Sprite implements DrawsOnCanvasContract
                     continue;
                 }
 
+                if ($canvas->isOutOfBounds($this->x + $x, $this->y + $y)) {
+                    continue;
+                }
+
                 $canvas->setPixel(
                     $this->x + $x, $this->y + $y,
                     $this->colorPalette[$colorIndex]

@@ -4,15 +4,9 @@ namespace App\Console\Commands;
 
 use App\Divoom\Device;
 use App\Divoom\Drawing\Canvas;
-use App\Divoom\Drawing\Color;
 use App\Divoom\Drawing\Components\Window;
 use App\Divoom\Drawing\Sprites\PointerCursor;
 use App\Divoom\Drawing\Themes\DefaultTheme;
-use App\Divoom\Enums\Channel;
-use App\Divoom\Requests\CommandList;
-use App\Divoom\Requests\SelectChannel;
-use App\Divoom\Requests\SentGif;
-use App\Divoom\Requests\SetCustomPageIndex;
 use Illuminate\Console\Command;
 
 class Divoom extends Command
@@ -41,13 +35,13 @@ class Divoom extends Command
         //$canvas->rectangle(10, 10, 25, 25, new Color(255, 0, 0));
 
         $window = new Window(new DefaultTheme);
-        $window->at(20, 20);
-        $window->size(40, 40);
+        $window->at(5, 5);
+        $window->size(20, 40);
         $window->drawOn($canvas);
 
         $window2 = new Window(new DefaultTheme);
         $window2->at(40, 24);
-        $window2->size(20, 20);
+        $window2->size(14, 13);
         $window2->drawOn($canvas);
 
         //        $canvas->setPixel(rand(1, 63), rand(1, 63), Color::black());

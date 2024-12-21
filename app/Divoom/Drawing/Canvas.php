@@ -28,12 +28,22 @@ class Canvas
 
     public function __construct(?Color $backgroundColor = null)
     {
-        $this->pixelCount = (int) self::Size * self::Size;
+        $this->pixelCount = self::Size * self::Size;
         $this->canvas = array_fill(0, $this->pixelCount * self::ColorSize, 0);
 
         if ($backgroundColor) {
-            $this->fill(0, 0, 63, 63, $backgroundColor);
+            $this->fill(0, 0, self::Size, self::Size, $backgroundColor);
         }
+    }
+
+    /**
+     * Returns true if the given coordinate is outside the canvas space.
+     */
+    public function isOutOfBounds(int $x, int $y): bool
+    {
+        return $x < 0 || $y < 0
+            || $x >= self::Size
+            || $y >= self::Size;
     }
 
     /**
