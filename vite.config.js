@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
     resolve: {
         alias: {
+                '@types': '/resources/js/types/',
                 '@domain': '/resources/js/Domain/',
             },
         },

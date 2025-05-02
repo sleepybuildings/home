@@ -24,7 +24,7 @@ class DeviceResult
      */
     public static function fromArray(array $response): DeviceResult
     {
-        $errorCode = intval(data_get($response, 'error_code', 0));
+        $errorCode = (int) (data_get($response, 'error_code', 0));
         if ($errorCode > 0) {
             return new self(error: sprintf('Error code returned from device: %d', $errorCode));
         }

@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@import "./rose-pine/rose-pine-moon.css";
+
+html, body {
+    @apply h-full;
+
+    background: var(--color-rose-pine-base);
+    color: var(--color-rose-pine-text);
+}
+
+#app {
+    @apply h-full;
+}

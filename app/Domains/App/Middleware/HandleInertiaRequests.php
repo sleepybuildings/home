@@ -27,7 +27,7 @@ class HandleInertiaRequests extends Middleware
     /**
      * Define the props that are shared by default.
      *
-     * @return array<string, mixed>
+     * @return array<mixed, mixed>
      *
      * @throws BindingResolutionException
      */

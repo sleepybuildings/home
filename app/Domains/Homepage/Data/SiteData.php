@@ -4,7 +4,9 @@ namespace App\Domains\Homepage\Data;
 
 use App\Models\Site;
 use Spatie\LaravelData\Data;
+use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
+#[TypeScript]
 class SiteData extends Data
 {
     public function __construct(

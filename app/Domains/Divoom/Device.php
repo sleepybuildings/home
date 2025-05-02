@@ -54,7 +54,7 @@ class Device
 
         $this->deviceInitialized = true;
         $this->resetPicId();
-        $this->picId = intval(data_get($this->post(new GetPicId)->value ?? [], 'PicId'));
+        $this->picId = (int) (data_get($this->post(new GetPicId)->value ?? [], 'PicId'));
     }
 
     /** @noinspection HttpUrlsUsage */
