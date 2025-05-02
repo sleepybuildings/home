@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Divoom\Device;
-use App\Divoom\Drawing\Canvas;
-use App\Divoom\Drawing\Components\Window;
-use App\Divoom\Drawing\Sprites\PointerCursor;
-use App\Divoom\Drawing\Themes\DefaultTheme;
+use App\Domains\Divoom\Device;
+use App\Domains\Divoom\Drawing\Canvas;
+use App\Domains\Divoom\Drawing\Components\Window;
+use App\Domains\Divoom\Drawing\Sprites\PointerCursor;
+use App\Domains\Divoom\Drawing\Themes\DefaultTheme;
 use Illuminate\Console\Command;
 
 class Divoom extends Command
@@ -24,7 +24,7 @@ class Divoom extends Command
         // $canvas->setPixel(rand(0, 63), rand(0, 63), Color::white());
         // $canvas->fillPattern(Color::white(), Color::black());
         // $canvas->fill(0, 0, 10, 10, new Color(23, 23, 202));
-        //$canvas->rectangle(20, 20, 20, 20, new Color(23, 23, 202));
+        // $canvas->rectangle(20, 20, 20, 20, new Color(23, 23, 202));
 
         //        $canvas->line(
         //            fromX: 10, fromY: 10,
@@ -32,7 +32,7 @@ class Divoom extends Command
         //            color: new Color(255, 0, 0)
         //        );
 
-        //$canvas->rectangle(10, 10, 25, 25, new Color(255, 0, 0));
+        // $canvas->rectangle(10, 10, 25, 25, new Color(255, 0, 0));
 
         $window = new Window(new DefaultTheme);
         $window->at(5, 5);
@@ -63,7 +63,7 @@ class Divoom extends Command
         //            )
         //        ])));
 
-        //$client->post(new SelectChannel(Channel::Black));
+        // $client->post(new SelectChannel(Channel::Black));
         // dd($client->post(new SetCustomPageIndex(1)));
 
         $result = $client->sendCanvas($canvas);
